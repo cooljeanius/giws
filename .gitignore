@@ -1,5 +1,6 @@
 *.pyc
 *~
+build/*
 
 # remove examples generated files
 /examples/*/*.cpp
