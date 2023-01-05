@@ -358,7 +358,7 @@ class JNIFrameWork:
             method.getUniqueNameOfTheMethod(),
             params,
             returnsEnd,
-       )
+        )
 
     def getReturnProfile(self, returnType):
         return returnType.getReturnSyntax()

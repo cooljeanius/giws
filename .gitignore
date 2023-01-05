@@ -12,3 +12,6 @@ build/*
 /.project
 /.pydevproject
 
+# from patch application failures:
+*.orig
+*.rej

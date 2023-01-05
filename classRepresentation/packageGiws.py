@@ -49,10 +49,10 @@ class packageGiws:
         return self.__name
 
     def getNameForCXX(self):
-        return self.__name.replace('.', '_')
+        return self.__name.replace(".", "_")
 
     def getNameForJNI(self):
-        return self.__name.replace('.', '/')
+        return self.__name.replace(".", "/")
 
     def getObjects(self):
         return self.__objects

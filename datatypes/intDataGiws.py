@@ -42,6 +42,7 @@ class intDataGiws(dataGiws):
     """
     Manages Java datatype int
     """
+
     type = "jint"
     nativeType = "int"
     callMethod = "CallIntMethod"
@@ -56,5 +57,6 @@ class intDataGiws(dataGiws):
     def getDescription(self):
         return "signed 32 bits"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print(intDataGiws().getReturnTypeSyntax())
