@@ -8,11 +8,11 @@ endif
 
 #
 # C++ compiler options
-# 
+#
 CC = g++
 CFLAGS = -g
-INCLUDES = -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux 
-LIBS = -ljvm -L$(JAVA_HOME)/jre/lib/i386 -L$(JAVA_HOME)/jre/lib/amd64 -L$(JAVA_HOME)/jre/lib/i386/client/ -L$(JAVA_HOME)/jre/lib/amd64/server/
+INCLUDES = -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
+LIBS = -ljvm -L$(JAVA_HOME)/lib/server/
 
 #
 # Java compiler option
@@ -27,7 +27,7 @@ GIWS = ../../giws
 GFLAGS =
 
 #
-# GIWS PROJECT INFORMATION 
+# GIWS PROJECT INFORMATION
 #
 PACKAGE_NAME = Bar
 OBJECT_NAME  = plop
@@ -62,7 +62,7 @@ $(BINARY): $(GIWS_OUT_FILES)
 	@if test $(MAKELEVEL) -eq 0; then \
 		echo "==========================================================================="; \
 		echo "Dont forget to set library path before running the program:"; \
-		echo "# export LD_LIBRARY_PATH=$(LD_LIBRARY_PATH):$(JAVA_HOME)/jre/lib/i386:$(JAVA_HOME)/jre/lib/i386/client/"; \
+		echo "# export LD_LIBRARY_PATH=$(LD_LIBRARY_PATH):$(JAVA_HOME)/lib/server/"; \
 		echo "==========================================================================="; \
 	fi
 

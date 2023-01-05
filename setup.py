@@ -40,16 +40,17 @@ import os
 
 root_dir = os.path.dirname(__file__)
 if root_dir:
-	os.chdir(root_dir)
+    os.chdir(root_dir)
 
-setup (name = "giws",
+setup(
+    name="giws",
     description="Generate C++ class wrappers to call Java methods/objects",
     version=configGiws().getVersion(),
     author="Sylvestre Ledru",
     author_email="sylvestre@debian.org",
     url="https://github.com/opencollab/giws/",
-    packages=['.','classRepresentation','datatypes'],
-    scripts=['giws'],
+    packages=[".", "classRepresentation", "datatypes"],
+    scripts=["giws"],
     license="CeCILL",
     long_description="""Giws is basically doing the same stuff as SWIG but the opposite.
  Calling Java from C/C++ can be tricky: JNI calls are complicated
@@ -58,5 +59,5 @@ setup (name = "giws",
  the code can be redundant (checking exceptions, checking returns
  of operations...).
  Giws hides this complexity through a C++ class which wraps the
- Java class."""
+ Java class.""",
 )
