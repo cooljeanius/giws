@@ -40,7 +40,6 @@ from JNIFrameWork import JNIFrameWork
 
 
 class stringDataGiws(dataGiws):
-
     nativeType = "char *"
     callMethod = "CallObjectMethod"
     callStaticMethod = "CallStaticObjectMethod"

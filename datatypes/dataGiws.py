@@ -348,7 +348,6 @@ class dataGiws(object):
             return ""
 
     def getReturnSyntax(self):
-
         if self.isArray():
             return """
 			return myArray;

@@ -59,7 +59,6 @@ import new
 
 class dataFactoryGiws:
     def __init__(self):
-
         self.dict = {
             "int": intDataGiws,
             "char": charDataGiws,

@@ -46,7 +46,6 @@ from outputWriter import outputWriter
 
 
 class CXXException:
-
     package = None
 
     def getDescriptionHeader(self, config):

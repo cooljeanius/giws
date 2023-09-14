@@ -38,7 +38,6 @@ from dataGiws import dataGiws
 
 
 class byteDataGiws(dataGiws):
-
     type = "jbyte"
     nativeType = "byte"
     callMethod = "CallByteMethod"

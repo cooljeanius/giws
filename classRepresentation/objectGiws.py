@@ -543,7 +543,6 @@ class objectGiws:
                 """
 
     def needCaching(self):
-
         for method in self.__methods:
             for param in method.getParameters():
                 if param.getType().isByteBufferBased() == True:
@@ -552,7 +551,6 @@ class objectGiws:
         return False
 
     def getStaticVariableDeclaration(self):
-
         str = ""
         if self.needCaching():
             str = """

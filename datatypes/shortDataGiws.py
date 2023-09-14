@@ -38,7 +38,6 @@ from dataGiws import dataGiws
 
 
 class shortDataGiws(dataGiws):
-
     type = "jshort"
     nativeType = "short"
     callMethod = "CallShortMethod"
