@@ -19,41 +19,41 @@ Documentation
 The best way to understand how to use GIWS is to read the examples
 
 Code using C++ generated files
-examples/*/main.cpp
+`examples/*/main.cpp`
 
 XML declaration files:
-examples/*/*.xml
+`examples/*/*.xml`
 
 
 Usage
 -----
 
-./giws -h to see the help
+`./giws -h` to see the help
 
 Options :
 
-* -o / --output-dir= <dir>
+* `-o` / `--output-dir=<dir>`
   Where files should be generated
 
-* -f / --description-file= <file>
+* `-f` / `--description-file=<file>`
   Specify the declaration file to use
 
-* -p / --per-package
+* `-p` / `--per-package`
   Creates a file per package instead of a file per object
 
-* -e / --throws-exception-on-error
-  Throws a C++ exception instead of an exit(EXIT_FAILURE)
+* `-e` / `--throws-exception-on-error`
+  Throws a C++ exception instead of an `exit(EXIT_FAILURE)`
 
-* --header-extension-file : 
-  Specify the extension of the header file generated [Default : .hxx]
+* `--header-extension-file`: 
+  Specify the extension of the header file generated \[Default: `.hxx`]
 
-* --body-extension-file :
-  Specify the extension of the body file generated [Default : .cpp]
+* `--body-extension-file`:
+  Specify the extension of the body file generated \[Default: `.cpp`]
 
-* -v / --version :
+* `-v` / `--version`:
   Displays the version and other information
 
-* -h / --help :
+* `-h` / `--help`:
   Displays the help
 
 	
@@ -62,5 +62,5 @@ Dependencies
 ------------
 
 Obviously, as GIWS has been written in Python, it needs the Python interpreter
-to work. And that's it !
+to work... and that's it!
 
