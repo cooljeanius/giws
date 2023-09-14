@@ -220,7 +220,7 @@ class stringDataGiws(dataGiws):
         if self.isArray():
             strCommon = ""
             strDeclaration = ""
-            if configGiws().getDisableReturnSize() == True:
+            if configGiws().getDisableReturnSize():
                 strCommon += "int lenRow;"
             else:
                 # The size of the array is returned as output argument of the
@@ -252,7 +252,7 @@ class stringDataGiws(dataGiws):
                 )
                 return str
             else:
-                if configGiws().getDisableReturnSize() == True:
+                if configGiws().getDisableReturnSize():
                     str += "int lenCol;"
                 str += (
                     strCommon

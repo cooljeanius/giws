@@ -119,7 +119,7 @@ class methodGiws:
             paramType = parameter.getType()
             # Only declared once this object
             if (
-                type(paramType) is stringDataGiws
+                isinstance(paramType, stringDataGiws)
                 and paramType.isArray()
                 and not arrayOfStringDeclared
             ):
@@ -128,7 +128,7 @@ class methodGiws:
 
             if (
                 paramType.specificPreProcessing(parameter, self.getDetachThread())
-                != None
+                is not None
             ):
                 str += paramType.specificPreProcessing(
                     parameter, self.getDetachThread()
@@ -138,9 +138,8 @@ class methodGiws:
         str += JNIFrameWork().getCallObjectMethodProfile(self)
 
         # add specific post processing stuff
-        if (
-            hasattr(self.getReturn(), "specificPostProcessing")
-            and type(self.getReturn().specificPostProcessing) is MethodType
+        if hasattr(self.getReturn(), "specificPostProcessing") and isinstance(
+            self.getReturn().specificPostProcessing, MethodType
         ):
             # For this datatype, there is some stuff to do AFTER the method
             # call
@@ -164,7 +163,7 @@ class methodGiws:
 
             if (
                 hasattr(self.getReturn(), "specificPostProcessing")
-                and type(self.getReturn().specificPostProcessing) is MethodType
+                and isinstance(self.getReturn().specificPostProcessing, MethodType)
                 and (
                     self.getReturn().isArray()
                     or isinstance(self.getReturn(), stringDataGiws)
