@@ -34,7 +34,7 @@
 #
 # For more information, see the file COPYING
 
-from methodGiws import methodGiws
+from classRepresentation.methodGiws import methodGiws
 from JNIFrameWork import JNIFrameWork
 from datatypes.stringDataGiws import stringDataGiws
 from configGiws import configGiws
@@ -47,10 +47,6 @@ class objectGiws:
     # Which class it extends
     __extends = None
 
-    def __init__(self, name):
-        self.__name = name
-        self.__methods = []
-
     def __init__(self, name, extends):
         self.__name = name
         self.__methods = []
@@ -59,6 +55,8 @@ class objectGiws:
     def addMethod(self, method):
         if isinstance(method, methodGiws):
             self.__methods.append(method)
+        else:
+            raise Exception("The method must be a methodGiws object")
 
     def getName(self):
         return self.__name
@@ -81,8 +79,8 @@ class objectGiws:
                 # Avoids to load the class String each time we need it
                 if (
                     isinstance(param.getType(), stringDataGiws)
-                    and param.getType().isArray()
-                    and stringClassSet != True
+                    and param.getType().isArray() is True
+                    and stringClassSet is not True
                     and method.getModifier() != "static"
                 ):
                     str += """
@@ -357,8 +355,8 @@ class objectGiws:
                 # Avoids to load the class String each time we need it
                 if (
                     isinstance(param.getType(), stringDataGiws)
-                    and param.getType().isArray()
-                    and stringClassSet != True
+                    and param.getType().isArray() is True
+                    and stringClassSet is not True
                 ):
                     str += """jclass stringArrayClass;
 					"""
@@ -545,7 +543,7 @@ class objectGiws:
     def needCaching(self):
         for method in self.__methods:
             for param in method.getParameters():
-                if param.getType().isByteBufferBased():
+                if param.getType().isByteBufferBased() is True:
                     return True
 
         return False

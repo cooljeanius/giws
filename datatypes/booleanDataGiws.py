@@ -34,7 +34,7 @@
 #
 # For more information, see the file COPYING
 
-from dataGiws import dataGiws
+from datatypes.dataGiws import dataGiws
 from JNIFrameWork import JNIFrameWork
 from configGiws import configGiws
 
@@ -107,7 +107,7 @@ class booleanDataGiws(dataGiws):
         if self.isArray():
             str = JNIFrameWork().getExceptionCheckProfile(detachThread)
             strCommon = ""
-            if configGiws().getDisableReturnSize():
+            if configGiws().getDisableReturnSize() is True:
                 strCommon += "int *lenRow;"
             strCommon += """
 			*lenRow = curEnv->GetArrayLength(res);
@@ -115,6 +115,7 @@ class booleanDataGiws(dataGiws):
 			"""
 
             if self.getDimensionArray() == 1:
+
                 return (
                     str
                     + strCommon
@@ -133,7 +134,7 @@ class booleanDataGiws(dataGiws):
 				"""
                 )
             else:
-                if configGiws().getDisableReturnSize():
+                if configGiws().getDisableReturnSize() is True:
                     str += "int *lenCol;"
                 return (
                     str

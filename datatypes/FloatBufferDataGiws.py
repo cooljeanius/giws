@@ -34,9 +34,7 @@
 #
 # For more information, see the file COPYING
 
-from dataBufferGiws import dataBufferGiws
-from configGiws import configGiws
-from JNIFrameWork import JNIFrameWork
+from datatypes.dataBufferGiws import dataBufferGiws
 
 
 class FloatBufferDataGiws(dataBufferGiws):

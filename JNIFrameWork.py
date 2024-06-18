@@ -38,7 +38,6 @@ from configGiws import configGiws
 
 
 class JNIFrameWork:
-
     """
     This class provides the JNI code
     """

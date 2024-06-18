@@ -34,7 +34,7 @@
 #
 # For more information, see the file COPYING
 
-from parameterGiws import parameterGiws
+from classRepresentation.parameterGiws import parameterGiws
 from JNIFrameWork import JNIFrameWork
 from datatypes.dataGiws import dataGiws
 from datatypes.stringDataGiws import stringDataGiws
@@ -54,7 +54,7 @@ class methodGiws:
         if isinstance(returns, dataGiws):
             self.__returns = returns
         else:
-            raise Exception("The type must be a dataGiws object")
+            raise Exception("The return type must be a dataGiws object")
         self.__parameters = []
         if detachThread:
             self.__detachThread = "\njvm_->DetachCurrentThread();\n"
@@ -63,6 +63,8 @@ class methodGiws:
     def addParameter(self, parameter):
         if isinstance(parameter, parameterGiws):
             self.__parameters.append(parameter)
+        else:
+            raise Exception("The parameter type must be a parameterGiws object")
 
     def getName(self):
         return self.__name
@@ -92,7 +94,7 @@ class methodGiws:
                 # needed to lenRow
                 if (
                     self.getReturn().isArray()
-                    and configGiws().getDisableReturnSize() != True
+                    and configGiws().getDisableReturnSize() is not True
                 ):
                     str += ", "
 
@@ -119,7 +121,7 @@ class methodGiws:
             paramType = parameter.getType()
             # Only declared once this object
             if (
-                isinstance(paramType, stringDataGiws)
+                type(paramType) is stringDataGiws
                 and paramType.isArray()
                 and not arrayOfStringDeclared
             ):
@@ -138,8 +140,9 @@ class methodGiws:
         str += JNIFrameWork().getCallObjectMethodProfile(self)
 
         # add specific post processing stuff
-        if hasattr(self.getReturn(), "specificPostProcessing") and isinstance(
-            self.getReturn().specificPostProcessing, MethodType
+        if (
+            hasattr(self.getReturn(), "specificPostProcessing")
+            and type(self.getReturn().specificPostProcessing) is MethodType
         ):
             # For this datatype, there is some stuff to do AFTER the method
             # call
@@ -163,7 +166,7 @@ class methodGiws:
 
             if (
                 hasattr(self.getReturn(), "specificPostProcessing")
-                and isinstance(self.getReturn().specificPostProcessing, MethodType)
+                and type(self.getReturn().specificPostProcessing) is MethodType
                 and (
                     self.getReturn().isArray()
                     or isinstance(self.getReturn(), stringDataGiws)
@@ -213,7 +216,10 @@ class methodGiws:
             static = ""
 
         ret = ""
-        if self.getReturn().isArray() and configGiws().getDisableReturnSize() != True:
+        if (
+            self.getReturn().isArray()
+            and configGiws().getDisableReturnSize() is not True
+        ):
             if len(self.__parameters) != 0:
                 ret += ", "
             if self.getReturn().getDimensionArray() == 1:
@@ -240,7 +246,10 @@ class methodGiws:
         )
 
         ret = ""
-        if self.getReturn().isArray() and configGiws().getDisableReturnSize() != True:
+        if (
+            self.getReturn().isArray()
+            and configGiws().getDisableReturnSize() is not True
+        ):
             if len(self.__parameters) != 0:
                 ret += ", "
             if self.getReturn().getDimensionArray() == 1:
